@@ -1,8 +1,8 @@
-# J-18 Water Pipeline · Project Portal
+# Water Pipeline Project Portal
 
-A single-screen management view of IOCL Pipelines Division's project *Laying of 36" OD
-water pipeline from Fhajalpur tie-in (Mahi River) to Gujarat Refinery — J-18*:
-physical progress, HDD and shallow crossings, civil work, documentation, pre-project
+A single-screen management view of IOCL Pipelines Division's **Water Pipeline Project**
+— laying of 36" OD water pipeline from Fhajalpur tie-in (Mahi River) to Gujarat
+Refinery: physical progress, HDD and shallow crossings, civil work, documentation, pre-project
 activities, BoQ quantities and a focus list of what needs attention — plus an AI
 assistant that answers questions and drafts letters from the live data.
 

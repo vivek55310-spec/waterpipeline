@@ -6,7 +6,7 @@ thing takes about 40 minutes the first time.
 
 When you finish you will have:
 
-* a web address like `https://j18-portal.onrender.com` that works from any phone or PC,
+* a web address like `https://water-pipeline-portal.onrender.com` that works from any phone or PC,
 * a sign-in page — no user ID, no entry,
 * one shared copy of the data that everybody edits and everybody sees,
 * an AI assistant answering questions from *today's* data, using your own Gemini key.
@@ -63,7 +63,7 @@ portal kept its data in a file on the host, you would lose a day's entries witho
 warning. So the data goes into a separate free database that is designed to keep it.
 
 1. Go to **https://neon.com** and click **Sign up** (signing in with GitHub is quickest).
-2. It offers to create a project. Name it `j18-portal`. Region: pick the one nearest
+2. It offers to create a project. Name it `water-pipeline-portal`. Region: pick the one nearest
    India — **AWS ap-southeast-1 (Singapore)** is a good choice. Click **Create**.
 3. You land on a dashboard with a box called **Connection string**. Click **Copy**.
    It looks like:
@@ -90,7 +90,7 @@ waking it up.
 
    | Field | What to put |
    |---|---|
-   | Name | `j18-portal` (this becomes your web address) |
+   | Name | `water-pipeline-portal` (this becomes your web address) |
    | Region | Singapore |
    | Branch | `main` |
    | Runtime / Language | Python 3 |
@@ -160,7 +160,7 @@ first of the month and keep it on the office drive. If the host ever loses every
 that file restores the portal through **Import JSON**.
 
 **3. Your own web address (optional).** If IOCL gives you a name like
-`j18.iocl.in`, Render → Settings → **Custom Domain** walks you through it and issues
+`waterpipeline.iocl.in`, Render → Settings → **Custom Domain** walks you through it and issues
 the https certificate free.
 
 ---
@@ -172,11 +172,11 @@ that stays switched on:
 
 1. Install Python 3.11+ from **python.org** — tick **"Add python.exe to PATH"** on the
    first screen of the installer.
-2. Copy this folder onto the PC, say to `D:\j18-portal`.
+2. Copy this folder onto the PC, say to `D:\water-pipeline-portal`.
 3. Open Command Prompt and type these two lines:
 
    ```
-   cd /d D:\j18-portal
+   cd /d D:\water-pipeline-portal
    pip install flask
    python app.py
    ```

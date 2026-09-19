@@ -3,7 +3,7 @@
 # values marked sync:false when it asks.
 services:
   - type: web
-    name: j18-portal
+    name: water-pipeline-portal
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt

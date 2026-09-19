@@ -1,4 +1,4 @@
-"""J-18 Water Pipeline Portal — server.
+"""Water Pipeline Project Portal — server.
 
 Local / office PC:   pip install -r requirements.txt && python app.py
 Cloud (Render etc.): gunicorn app:app --bind 0.0.0.0:$PORT
@@ -402,7 +402,7 @@ SYSTEM = ("You are an assistant embedded in the Water Pipeline Project Portal, t
           "The user is the IOCL site officer managing the contract. Use only the JSON project data supplied; quote quantities and dates from it exactly; "
           "use Indian number formatting (lakh/crore) for money; keep to the point; never fabricate figures, clause numbers or names not present in the data.")
 
-UA = "J18-Portal/1.1"   # a bare urllib user-agent gets blocked by some CDNs (Cloudflare 1010)
+UA = "WaterPipelinePortal/1.1"   # a bare urllib user-agent gets blocked by some CDNs (Cloudflare 1010)
 
 CUT = ("\n\n[The model ran out of room and stopped here. Raise AI_MAX_TOKENS, "
        "or ask for a narrower part of this.]")
