@@ -27,9 +27,9 @@ The hosting company needs to read the code from somewhere. That somewhere is Git
 1. Go to **https://github.com** and sign in (create a free account if you have none).
 2. The code is already in your repository **`vivek55310-spec/waterpipeline`**, on a
    branch called `claude/website-deployment-data-updates-dqvzg8`.
-3. Open that repository, click the **Compare & pull request** button GitHub shows for
-   the branch, then **Create pull request** → **Merge pull request**. The code is now
-   on the `main` branch, which is what the host will read.
+3. Open **https://github.com/vivek55310-spec/waterpipeline/pull/1** — the pull request
+   holding this work — and click **Merge pull request** → **Confirm merge**. The code
+   is now on the `main` branch, which is what the host will read.
 
 That is all you ever need to do on GitHub. Later, whenever the code changes on `main`,
 the website updates itself.
