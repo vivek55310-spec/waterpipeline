@@ -383,7 +383,7 @@ def backup():
         users=[dict(user=x["username"], name=x["name"], admin=bool(x["admin"]))
                for x in ST.all("SELECT username,name,admin FROM users ORDER BY username")],
     )
-    out.headers["Content-Disposition"] = f'attachment; filename="J18_portal_backup_{today()}.json"'
+    out.headers["Content-Disposition"] = f'attachment; filename="Water_Pipeline_Project_Portal_backup_{today()}.json"'
     return out
 
 
@@ -397,8 +397,8 @@ TASKS = {
     "risks": "Identify schedule and execution risks from the data: HDDs without permission or approved drawing, documents stuck in review, pre-project activities not complete, quantity overruns, and the gap between today's date and the scheduled/extended completion date. Rank them and suggest mitigation. Do not invent facts.",
     "ask": "Answer the user's question using only the project data provided. If the data does not contain the answer, say so.",
 }
-SYSTEM = ("You are an assistant embedded in the project-management portal for IOCL Pipelines Division's project "
-          "'Laying of 36\" OD Water Pipeline from Fhajalpur tie-in (Mahi River) to Gujarat Refinery, J-18'. "
+SYSTEM = ("You are an assistant embedded in the Water Pipeline Project Portal, the project-management "
+          "portal for IOCL Pipelines Division's Water Pipeline Project. "
           "The user is the IOCL site officer managing the contract. Use only the JSON project data supplied; quote quantities and dates from it exactly; "
           "use Indian number formatting (lakh/crore) for money; keep to the point; never fabricate figures, clause numbers or names not present in the data.")
 
