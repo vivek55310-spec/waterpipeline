@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · Water Pipeline Project Portal</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230E2A47'/%3E%3Cpath d='M4 20h24' stroke='%23F37021' stroke-width='5'/%3E%3C/svg%3E">
+<style>
+:root{--navy:#0E2A47;--navy-2:#173A5E;--ink:#1B2431;--mute:#5A6675;--line:#D5DBE3;--paper:#fff;--field:#F3F5F8;--orange:#F37021;--red:#B3261E}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--field);color:var(--ink);font:14px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+.wrap{min-height:100%;display:grid;place-items:center;padding:24px}
+.card{width:100%;max-width:380px;background:var(--paper);border:1px solid var(--line);box-shadow:0 1px 3px rgba(14,42,71,.08)}
+.head{background:var(--navy);color:#fff;padding:16px 20px}
+.head h1{margin:0;font-size:16px;font-weight:600}
+.head p{margin:4px 0 0;font-size:12px;color:#C7D4E3}
+form{padding:20px}
+label{display:block;font-size:12px;color:var(--mute);margin:0 0 4px}
+input{width:100%;padding:9px 10px;border:1px solid var(--line);background:var(--field);margin:0 0 14px}
+input:focus{outline:2px solid var(--orange);outline-offset:-2px;background:#fff}
+button{width:100%;padding:10px;border:0;background:var(--navy);color:#fff;font-weight:600;cursor:pointer}
+button:hover{background:var(--navy-2)}
+button[disabled]{opacity:.6;cursor:default}
+.err{color:var(--red);font-size:13px;min-height:19px;margin:0 0 8px}
+.foot{padding:0 20px 18px;color:var(--mute);font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="head">
+      <h1>Water Pipeline Project Portal</h1>
+      <p>Laying of 36" OD water pipeline, Mahi River to Gujarat Refinery</p>
+    </div>
+    <form id="f" autocomplete="on">
+      <label for="u">User ID</label>
+      <input id="u" name="username" autocomplete="username" autofocus required>
+      <label for="p">Password</label>
+      <input id="p" name="password" type="password" autocomplete="current-password" required>
+      <p class="err" id="e"></p>
+      <button id="b">Sign in</button>
+    </form>
+    <p class="foot">No user ID yet? Ask the portal administrator (the Engineer-in-Charge's site office) to create one for you.</p>
+  </div>
+</div>
+<script>
+const f=document.getElementById('f'),e=document.getElementById('e'),b=document.getElementById('b');
+f.addEventListener('submit',async ev=>{
+  ev.preventDefault(); e.textContent=''; b.disabled=true; b.textContent='Signing in…';
+  try{
+    const r=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({user:document.getElementById('u').value,password:document.getElementById('p').value})});
+    if(r.ok){location.href='/';return;}
+    const j=await r.json().catch(()=>({}));
+    e.textContent=j.error||'User ID or password not recognised.';
+  }catch(err){ e.textContent='Could not reach the portal: '+err; }
+  b.disabled=false; b.textContent='Sign in';
+});
+</script>
+</body>
+</html>
