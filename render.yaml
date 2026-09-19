@@ -1,0 +1,33 @@
+# Render Blueprint. Import this repository at https://dashboard.render.com/blueprints
+# and Render creates the web service with these settings; you fill in the four
+# values marked sync:false when it asks.
+services:
+  - type: web
+    name: j18-portal
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # 240 s because one AI answer can take a while on a free tier
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 240
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.6
+      - key: SECRET_KEY
+        generateValue: true
+      - key: AI_PROVIDER
+        value: gemini
+      - key: GEMINI_MODEL
+        value: gemini-3.1-flash-lite
+      - key: PUBLIC_READ
+        value: "false"
+      - key: HTTPS_ONLY
+        value: "1"
+      - key: ADMIN_USER
+        value: admin
+      - key: ADMIN_PASSWORD   # you type this in Render, it is never stored in the repo
+        sync: false
+      - key: DATABASE_URL     # the connection string from your free Postgres
+        sync: false
+      - key: GEMINI_API_KEY   # your Google AI Studio key
+        sync: false
